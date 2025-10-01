@@ -1,0 +1,40 @@
+# SkyBlock plugin configuration
+
+# === Database Settings ===
+database:
+  # MySQL connection URL
+  url: "jdbc:mysql://localhost:3306/skyblock"
+  # Database user
+  user: "root"
+  # Database password
+  pass: ""
+  # Maximum number of connections in the pool
+  pool: 5
+
+# === Economy Settings ===
+economy:
+  starting-balance: 100.0   # money new players start with
+  currency-symbol: "$"
+
+# === Islands Settings ===
+islands:
+  world: "skyblock_world"   # name of the world where islands are placed
+  spawn-radius: 5000        # maximum distance for island placement
+  default-size: 50          # size of each island
+  reset-cost: 500           # money required to reset an island
+
+# === GUI Settings ===
+gui:
+  menu-title: "SkyBlock Menu"
+  rows: 3
+
+# === Items Settings ===
+items:
+  enable-custom-items: true
+  # Example starter item ID list
+  starter-items:
+    - "SKYSWORD"
+    - "SKYPICKAXE"
+
+# === Debug Mode ===
+debug: false
