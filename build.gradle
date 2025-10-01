@@ -1,21 +1,31 @@
 plugins {
     id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2' // shading plugin
 }
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(8) // target Java 8 bytecode
+        languageVersion = JavaLanguageVersion.of(8)
     }
 }
 
 repositories {
     mavenCentral()
-    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
-    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots/' }
-    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 dependencies {
     compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
     implementation 'com.zaxxer:HikariCP:3.4.5'
 }
+
+tasks {
+    build {
+        dependsOn shadowJar
+    }
+}
+ shadowJar {
+    archiveClassifier.set('') // Replace the default -all suffix
+    relocate 'com.zaxxer.hikari', 'com.skyblock.lib.hikari' // Prevent conflicts with other plugins
+ }
