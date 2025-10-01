@@ -23,7 +23,7 @@ jobs:
 
       - name: Build plugin
         run: ./gradlew shadowJar --no-daemon
-
+  
       - name: Upload plugin jar
         uses: actions/upload-artifact@v4
         with:
