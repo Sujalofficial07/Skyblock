@@ -18,11 +18,11 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v2
 
       - name: Build plugin
-        run: ./gradlew build -x test --no-daemon
+        run: gradle build -x test --no-daemon
 
       - name: Upload plugin jar
         uses: actions/upload-artifact@v4
