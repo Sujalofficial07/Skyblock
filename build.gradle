@@ -1,11 +1,14 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '7.1.2' // shading plugin
+    id 'com.github.johnrengelman.shadow' version '8.1.1' // updated shadow for Gradle 8
 }
+
+group = 'com.skyblock'
+version = '1.0.0'
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(8)
+        languageVersion = JavaLanguageVersion.of(8) // required for MC 1.8.8
     }
 }
 
@@ -25,7 +28,8 @@ tasks {
         dependsOn shadowJar
     }
 }
- shadowJar {
-    archiveClassifier.set('') // Replace the default -all suffix
-    relocate 'com.zaxxer.hikari', 'com.skyblock.lib.hikari' // Prevent conflicts with other plugins
- }
+
+tasks.shadowJar {
+    archiveClassifier.set('') // produce "SkyBlock-1.0.0.jar"
+    relocate 'com.zaxxer.hikari', 'com.skyblock.lib.hikari' // avoid conflicts
+}
