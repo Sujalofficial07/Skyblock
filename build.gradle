@@ -4,13 +4,16 @@ plugins {
 
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(8) // Compile for Java 8
+        languageVersion = JavaLanguageVersion.of(8) // target Java 8 bytecode
     }
 }
 
 repositories {
     mavenCentral()
-    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    // Spigot snapshots
+    maven { url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
+    // md_5’s repo for bungeecord-chat
+    maven { url = 'https://oss.sonatype.org/content/repositories/snapshots/' }
 }
 
 dependencies {
