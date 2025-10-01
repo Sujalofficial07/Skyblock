@@ -23,13 +23,11 @@ dependencies {
     implementation 'com.zaxxer:HikariCP:3.4.5'
 }
 
-tasks {
-    build {
-        dependsOn shadowJar
-    }
+tasks.shadowJar {
+    archiveClassifier.set('') // produce normal jar without -all
+    relocate 'com.zaxxer.hikari', 'com.skyblock.lib.hikari' // avoid conflicts with other plugins
 }
 
-tasks.shadowJar {
-    archiveClassifier.set('') // produce "SkyBlock-1.0.0.jar"
-    relocate 'com.zaxxer.hikari', 'com.skyblock.lib.hikari' // avoid conflicts
+tasks.build {
+    dependsOn tasks.shadowJar
 }
