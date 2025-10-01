@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'org.spigotmc:spigot-api:1.8.8-R0.1-SNAPSHOT'
+    compileOnly files('libs/spigot-1.8.8.jar')
     implementation 'com.zaxxer:HikariCP:3.4.5'
 }
 
