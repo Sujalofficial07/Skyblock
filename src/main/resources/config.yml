@@ -31,10 +31,57 @@ gui:
 # === Items Settings ===
 items:
   enable-custom-items: true
-  # Example starter item ID list
-  starter-items:
-    - "SKYSWORD"
-    - "SKYPICKAXE"
 
-# === Debug Mode ===
+  # Format for each item:
+  # id:
+  #   material: MINECRAFT_ITEM
+  #   name: "Display Name"
+  #   rarity: RARE/EPIC/etc.
+  #   stats: { damage: 100, strength: 50, intelligence: 0 }
+  #   ability:
+  #     name: "Ability Name"
+  #     description:
+  #       - "Line 1 of description"
+  #       - "Line 2 of description"
+
+  ASPECT_OF_THE_END:
+    material: DIAMOND_SWORD
+    name: "Aspect of the End"
+    rarity: RARE
+    stats:
+      damage: 100
+      strength: 100
+      intelligence: 0
+    ability:
+      name: "Instant Transmission"
+      description:
+        - "Teleport 8 blocks ahead of you."
+        - "Your next hit within 5s deals +50 Damage."
+
+  ASPECT_OF_THE_DRAGONS:
+    material: DIAMOND_SWORD
+    name: "Aspect of the Dragons"
+    rarity: LEGENDARY
+    stats:
+      damage: 225
+      strength: 100
+    ability:
+      name: "Dragon Rage"
+      description:
+        - "All monsters in front of you take 700 damage."
+        - "They are knocked back slightly."
+
+  EMBER_ROD:
+    material: BLAZE_ROD
+    name: "Ember Rod"
+    rarity: EPIC
+    stats:
+      damage: 80
+      strength: 35
+    ability:
+      name: "Fire Blast"
+      description:
+        - "Shoots 3 fireballs in front of you."
+        - "Deals 100 damage each."
+        # === Debug Mode ===
 debug: false
